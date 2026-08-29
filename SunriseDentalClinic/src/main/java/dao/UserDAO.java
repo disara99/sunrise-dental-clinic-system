@@ -237,4 +237,27 @@ public class UserDAO {
                 createdAt
         );
     }
+    
+    // =========================================================
+// 8. DEACTIVATE USER
+// =========================================================
+public boolean deactivateUser(int userId) {
+
+    String sql = "UPDATE users SET status = 'INACTIVE' WHERE user_id = ?";
+
+    try (Connection connection = DBConnection.getConnection();
+         PreparedStatement statement = connection.prepareStatement(sql)) {
+
+        statement.setInt(1, userId);
+
+        int rowsAffected = statement.executeUpdate();
+
+        return rowsAffected > 0;
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return false;
+}
 }
