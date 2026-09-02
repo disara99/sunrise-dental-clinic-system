@@ -52,8 +52,10 @@ public class AdminDashboard extends javax.swing.JFrame {
         btnManageUsers.addActionListener(this::btnManageUsersActionPerformed);
 
         btnManageDentists.setText("Manage Dentists");
+        btnManageDentists.addActionListener(this::btnManageDentistsActionPerformed);
 
         btnManageReceptionists.setText("Manage Receptionists");
+        btnManageReceptionists.addActionListener(this::btnManageReceptionistsActionPerformed);
 
         btnManageTreatments.setText("Manage Treatments");
 
@@ -123,7 +125,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUsersActionPerformed
- {
+ 
 
     UserManagementForm userManagementForm =
             new UserManagementForm();
@@ -131,10 +133,27 @@ public class AdminDashboard extends javax.swing.JFrame {
     userManagementForm.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnManageUsersActionPerformed
 
+    private void btnManageDentistsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDentistsActionPerformed
+ DentistManagementForm dentistManagementForm =
+            new DentistManagementForm();
+
+    dentistManagementForm.setLocationRelativeTo(this);
+    dentistManagementForm.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManageDentistsActionPerformed
+
+    private void btnManageReceptionistsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageReceptionistsActionPerformed
+ ReceptionistManagementForm receptionistForm
+            = new ReceptionistManagementForm();
+
+    receptionistForm.setVisible(true);
+
+    this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManageReceptionistsActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    /*public static void main(String args[]) {*/
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
