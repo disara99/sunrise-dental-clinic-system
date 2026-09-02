@@ -8,9 +8,16 @@ package com.mycompany.sunrisedentalclinic;
  *
  * @author Dinuli Disara
  */
-public class SunriseDentalClinic {
+
+import javax.swing.SwingUtilities;
+import view.LoginForm;
+
+public class SunriseDentalClinic { 
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+        SwingUtilities.invokeLater(() -> {
+            new LoginForm().setVisible(true);
+        });
     }
 }
