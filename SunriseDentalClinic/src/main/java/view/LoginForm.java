@@ -110,19 +110,53 @@ public class LoginForm extends javax.swing.JFrame {
 
     if (user == null) {
 
-        lblMessage.setText("Invalid username or password.");
+    lblMessage.setText("Invalid username or password.");
 
-        return;
-    }
+    return;
+}
 
-    lblMessage.setText("Login successful!");
+// Login successful
+String role = user.getRole();
 
-    System.out.println(
-            "Logged in user: "
-            + user.getUsername()
-            + " | Role: "
-            + user.getRole()
-    ); // TODO add your handling code here:
+switch (role) {
+
+    case "ADMIN":
+
+        AdminDashboard adminDashboard =
+                new AdminDashboard();
+
+        adminDashboard.setVisible(true);
+
+        this.dispose();
+
+        break;
+
+    case "DENTIST":
+
+        DentistDashboard dentistDashboard =
+                new DentistDashboard();
+
+        dentistDashboard.setVisible(true);
+
+        this.dispose();
+
+        break;
+
+    case "RECEPTIONIST":
+
+        ReceptionistDashboard receptionistDashboard =
+                new ReceptionistDashboard();
+
+        receptionistDashboard.setVisible(true);
+
+        this.dispose();
+
+        break;
+
+    default:
+
+        lblMessage.setText("Invalid user role.");
+} // TODO add your handling code here:
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
