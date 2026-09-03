@@ -29,31 +29,83 @@ public class ReceptionistDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnViewPatients = new javax.swing.JButton();
+        btnManageAppointments = new javax.swing.JButton();
+        btnManageBilling = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sunrise Dental Clinic - Receptionist Dashboard");
 
         jLabel1.setText("Welcome, Receptionist");
 
+        jLabel2.setText("RECEPTIONIST DASHBOARD");
+
+        btnViewPatients.setText("Patient Management");
+        btnViewPatients.addActionListener(this::btnViewPatientsActionPerformed);
+
+        btnManageAppointments.setText("Appointment Management");
+
+        btnManageBilling.setText("Billing Management");
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(this::btnLogoutActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnManageAppointments)
+                            .addComponent(btnViewPatients)
+                            .addComponent(btnManageBilling)
+                            .addComponent(btnLogout))))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(btnViewPatients)
+                .addGap(18, 18, 18)
+                .addComponent(btnManageAppointments)
+                .addGap(18, 18, 18)
+                .addComponent(btnManageBilling)
+                .addGap(26, 26, 26)
+                .addComponent(btnLogout)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnViewPatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientsActionPerformed
+ PatientManagementForm patientForm = new PatientManagementForm();
+    patientForm.setVisible(true);
+    this.dispose();
+    // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewPatientsActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+ LoginForm loginForm = new LoginForm();
+    loginForm.setVisible(true);
+    this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,6 +133,11 @@ public class ReceptionistDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnManageAppointments;
+    private javax.swing.JButton btnManageBilling;
+    private javax.swing.JButton btnViewPatients;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

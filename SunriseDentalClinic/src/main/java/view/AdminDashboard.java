@@ -61,6 +61,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         btnManageTreatments.addActionListener(this::btnManageTreatmentsActionPerformed);
 
         btnViewPatients.setText("View Patients");
+        btnViewPatients.addActionListener(this::btnViewPatientsActionPerformed);
 
         btnViewAppointments.setText("View Appointments");
 
@@ -156,6 +157,12 @@ public class AdminDashboard extends javax.swing.JFrame {
     form.setVisible(true);
     this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnManageTreatmentsActionPerformed
+
+    private void btnViewPatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientsActionPerformed
+  PatientManagementForm patientForm = new PatientManagementForm();
+    patientForm.setVisible(true);
+    this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewPatientsActionPerformed
 
     /**
      * @param args the command line arguments
