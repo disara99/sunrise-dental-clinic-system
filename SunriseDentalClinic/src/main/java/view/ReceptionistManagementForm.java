@@ -114,6 +114,8 @@ private void loadReceptionists() {
 
         jLabel7.setText("Status");
 
+        txtReceptionistId.setEditable(false);
+
         cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVE", "INACTIVE" }));
 
         btnAdd.setText("Add");
