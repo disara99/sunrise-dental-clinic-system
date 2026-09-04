@@ -159,4 +159,37 @@ public class TreatmentDAO {
 
         return false;
     }
+    
+    // =========================================================
+// FIND TREATMENT BY ID
+// =========================================================
+public Treatment findById(int treatmentId) {
+
+    String sql = "SELECT * FROM treatments WHERE treatment_id = ?";
+
+    try (Connection connection = DBConnection.getConnection();
+         PreparedStatement statement = connection.prepareStatement(sql)) {
+
+        statement.setInt(1, treatmentId);
+
+        try (ResultSet resultSet = statement.executeQuery()) {
+
+            if (resultSet.next()) {
+
+                return new Treatment(
+                        resultSet.getInt("treatment_id"),
+                        resultSet.getString("treatment_name"),
+                        resultSet.getString("description"),
+                        resultSet.getDouble("treatment_fee"),
+                        resultSet.getString("status")
+                );
+            }
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return null;
+}
 }
