@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+import view.LoginForm;
 /**
  *
  * @author Dinuli Disara
@@ -66,6 +66,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         btnViewAppointments.setText("View Appointments");
 
         btnLogout.setText("Logout");
+        btnLogout.addActionListener(this::btnLogoutActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,6 +164,14 @@ public class AdminDashboard extends javax.swing.JFrame {
     patientForm.setVisible(true);
     this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnViewPatientsActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+ LoginForm loginForm = new LoginForm();
+    loginForm.setLocationRelativeTo(this);
+    loginForm.setVisible(true);
+
+    this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments

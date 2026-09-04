@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dinuli Disara
@@ -46,8 +48,10 @@ public class ReceptionistDashboard extends javax.swing.JFrame {
         btnViewPatients.addActionListener(this::btnViewPatientsActionPerformed);
 
         btnManageAppointments.setText("Appointment Management");
+        btnManageAppointments.addActionListener(this::btnManageAppointmentsActionPerformed);
 
         btnManageBilling.setText("Billing Management");
+        btnManageBilling.addActionListener(this::btnManageBillingActionPerformed);
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(this::btnLogoutActionPerformed);
@@ -106,6 +110,39 @@ public class ReceptionistDashboard extends javax.swing.JFrame {
     loginForm.setVisible(true);
     this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnManageAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAppointmentsActionPerformed
+ AppointmentManagementForm appointmentForm =
+            new AppointmentManagementForm();
+
+    appointmentForm.setVisible(true);
+    this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManageAppointmentsActionPerformed
+
+    private void btnManageBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageBillingActionPerformed
+     try {
+
+        BillingManagementForm billingForm =
+                new BillingManagementForm();
+
+        billingForm.setLocationRelativeTo(this);
+        billingForm.setVisible(true);
+
+    } catch (Exception e) {
+
+        e.printStackTrace();
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Billing form could not open.\n\n"
+                + e.getClass().getSimpleName()
+                + "\n"
+                + e.getMessage(),
+                "Billing Form Error",
+                JOptionPane.ERROR_MESSAGE
+        );
+    }       // TODO add your handling code here:
+    }//GEN-LAST:event_btnManageBillingActionPerformed
 
     /**
      * @param args the command line arguments

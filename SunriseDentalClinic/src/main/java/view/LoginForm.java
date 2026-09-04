@@ -133,14 +133,14 @@ switch (role) {
 
     case "DENTIST":
 
-        DentistDashboard dentistDashboard =
-                new DentistDashboard();
+    DentistDashboard dentistDashboard =
+            new DentistDashboard(user);
 
-        dentistDashboard.setVisible(true);
+    dentistDashboard.setVisible(true);
 
-        this.dispose();
+    this.dispose();
 
-        break;
+    break;
 
     case "RECEPTIONIST":
 

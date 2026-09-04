@@ -11,7 +11,7 @@ package com.mycompany.sunrisedentalclinic;
 
 import javax.swing.SwingUtilities;
 import view.LoginForm;
-
+ 
 public class SunriseDentalClinic { 
 
     public static void main(String[] args) {

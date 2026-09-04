@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
-/**
+import com.mycompany.sunrisedentalclinic.model.User;
+    /**
  *
  * @author Dinuli Disara
  */
@@ -15,9 +15,12 @@ public class DentistDashboard extends javax.swing.JFrame {
     /**
      * Creates new form DentistDashboard
      */
-    public DentistDashboard() {
-        initComponents();
-    }
+    private User loggedInUser;
+
+public DentistDashboard(User user) {
+    initComponents();
+    this.loggedInUser = user;
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,31 +32,89 @@ public class DentistDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnMyAppointments = new javax.swing.JButton();
+        btnMedicalRecords = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sunrise Dental Clinic - Dentist Dashboard");
 
         jLabel1.setText("Welcome, Dentist");
 
+        jLabel2.setText("DENTIST DASHBOARD");
+
+        btnMyAppointments.setText("My Appointments");
+        btnMyAppointments.addActionListener(this::btnMyAppointmentsActionPerformed);
+
+        btnMedicalRecords.setText("Medical Records");
+        btnMedicalRecords.addActionListener(this::btnMedicalRecordsActionPerformed);
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(this::btnLogoutActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMedicalRecords)
+                            .addComponent(btnMyAppointments)
+                            .addComponent(btnLogout))))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(btnMyAppointments)
+                .addGap(28, 28, 28)
+                .addComponent(btnMedicalRecords)
+                .addGap(35, 35, 35)
+                .addComponent(btnLogout)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMyAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyAppointmentsActionPerformed
+DentistAppointmentForm form =
+            new DentistAppointmentForm(loggedInUser);
+
+    form.setVisible(true);
+    this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMyAppointmentsActionPerformed
+
+    private void btnMedicalRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicalRecordsActionPerformed
+ MedicalRecordManagementForm form =
+            new MedicalRecordManagementForm(loggedInUser);
+
+    form.setVisible(true);
+    this.dispose();       // TODO add your handling code here:
+    }//GEN-LAST:event_btnMedicalRecordsActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+ LoginForm loginForm = new LoginForm();
+    loginForm.setLocationRelativeTo(this);
+    loginForm.setVisible(true);
+
+    this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,10 +138,14 @@ public class DentistDashboard extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new DentistDashboard().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new DentistDashboard(null).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnMedicalRecords;
+    private javax.swing.JButton btnMyAppointments;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
